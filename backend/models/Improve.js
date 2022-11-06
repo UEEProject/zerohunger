@@ -37,6 +37,11 @@ const ImproveSchema = new Schema({
         type : String,
         required : true,
         default : 'Pending'
+    },
+
+    description : {
+        type : String,
+        required : false,
     }
 });
 
