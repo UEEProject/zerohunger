@@ -12,6 +12,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors());
 
 const CashRouter = require("./routes/cashrouter");
+const SubsidyRouter = require("./routes/subsidyrouter");
 
 //getting the database url
 const URL = process.env.MONGODB_URL;
@@ -31,6 +32,7 @@ connection.once("open", function () {
 });
 
 app.use("/cash", CashRouter);
+app.use("/subsidy", SubsidyRouter);
 
 
 
