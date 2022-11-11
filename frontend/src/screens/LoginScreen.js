@@ -12,8 +12,32 @@ import {
 } from 'native-base';
 
 const LoginScreen = ({navigation}) => {
+  const [formData, setData] = React.useState({});
+  const [errors, setErrors] = React.useState({});
+  const [show, setShow] = React.useState(false);
+
   handleClick = () => {
     navigation.navigate('DonationInitial');
+  };
+
+  const validate = () => {
+    if (formData.email === undefined) {
+      setErrors({...errors, email: 'Email is required'});
+      return false;
+    } else if (formData.pass === undefined) {
+      setErrors({...errors, pass: 'Password is required'});
+      return false;
+    }
+    setErrors({});
+    return true;
+  };
+
+  const onSubmit = () => {
+    validate() ? console.log('Submitted') : console.log('Validation Failed');
+    console.log(formData);
+    if (validate() === true) {
+      navigation.navigate('DonationInitial');
+    }
   };
 
   return (
@@ -30,15 +54,33 @@ const LoginScreen = ({navigation}) => {
             Login
           </Heading>
           <Box width={'75%'}>
-
-            <FormControl mt={10}>
+            <FormControl isRequired isInvalid={'email' in errors} mt={10}>
               <FormControl.Label>Email</FormControl.Label>
-              <Input size="md" py={3} mt={5} placeholder="Enter your email" />
+              <Input
+                size="md"
+                py={3}
+                mt={5}
+                placeholder="Enter your email"
+                onChangeText={value => setData({...formData, email: value})}
+              />
+              <FormControl.ErrorMessage>
+                Email Required
+              </FormControl.ErrorMessage>
             </FormControl>
 
-            <FormControl mt={10}>
+            <FormControl isRequired isInvalid={'pass' in errors} mt={10}>
               <FormControl.Label>Password</FormControl.Label>
-              <Input size="md"py={3} mt={5} placeholder="Enter your password" />
+              <Input
+                type={show ? 'text' : 'password'}
+                size="md"
+                py={3}
+                mt={5}
+                placeholder="Enter your password"
+                onChangeText={value => setData({...formData, pass: value})}
+              />
+              <FormControl.ErrorMessage>
+                Password Required
+              </FormControl.ErrorMessage>
             </FormControl>
 
             <Center>
@@ -54,11 +96,10 @@ const LoginScreen = ({navigation}) => {
                 width={'50%'}
                 mt={20}
                 size="lg"
-                onPress={() => this.handleClick()}>
+                onPress={onSubmit}>
                 Login
               </Button>
             </Center>
-
           </Box>
         </Center>
       </Box>
