@@ -13,7 +13,7 @@ import {
   NativeBaseProvider,
 } from 'native-base';
 
-const CashDonationForm1Screen = ({navigation}) => {
+const AddWorkshop = ({navigation}) => {
   handleClick = () => {
     navigation.navigate('CashDonationForm2');
   };
@@ -109,4 +109,4 @@ const CashDonationForm1Screen = ({navigation}) => {
   );
 };
 
-export default CashDonationForm1Screen;
+export default AddWorkshop;
