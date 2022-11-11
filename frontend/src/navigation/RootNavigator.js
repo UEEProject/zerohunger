@@ -14,6 +14,10 @@ import ItemsDonationForm3Screen from '../screens/DonationFunction/ItemsDonationF
 import AddWorkshopCategory from '../screens/WorkshopFunction/AddWorkshopCategory';
 import AddWorkshop from '../screens/WorkshopFunction/AddWorkshop';
 import Guidance from '../screens/GuidanceFunction/GuidanceInitialScreen';
+import BusinessHelpFormScreen from '../screens/GuidanceFunction/BusinessHelpFormScreen';
+import BusinessStartForm1Screen from '../screens/GuidanceFunction/BusinessStartForm1Screen';
+import BusinessStartForm2Screen from '../screens/GuidanceFunction/BusinessStartForm2Screen';
+import BusinessStartForm3Screen from '../screens/GuidanceFunction/BusinessStartForm3Screen';
 
 
 
@@ -38,6 +42,10 @@ const RootNavigator = () => {
                 <Stack.Screen name ="AddWorkshop" component={AddWorkshop} />
 
                 <Stack.Screen name ="Guidance" component={Guidance} />
+                <Stack.Screen name ="BusinessHelpForm" component={BusinessHelpFormScreen} />
+                <Stack.Screen name ="BusinessStartForm1" component={BusinessStartForm1Screen} />
+                <Stack.Screen name ="BusinessStartForm2" component={BusinessStartForm2Screen} />
+                <Stack.Screen name ="BusinessStartForm3" component={BusinessStartForm3Screen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
