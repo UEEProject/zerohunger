@@ -13,9 +13,14 @@ import {
   NativeBaseProvider,
 } from 'native-base';
 
-const CashDonationForm1Screen = ({navigation}) => {
-  handleClick = () => {
-    navigation.navigate('CashDonationForm2');
+const GuidanceInitial = ({navigation}) => {
+
+  handleClick1 = () => {
+    navigation.navigate('BusinessHelpForm');
+  };
+
+  handleClick2 = () => {
+    navigation.navigate('BusinessStartForm1');
   };
 
   return (
@@ -67,7 +72,7 @@ const CashDonationForm1Screen = ({navigation}) => {
                   mt={8}
                   mb={5}
                   size="md"
-                  onPress={() => this.handleClick()}>
+                  onPress={() => this.handleClick1()}>
                   Help for my business
                 </Button>
               </Box>
@@ -96,7 +101,7 @@ const CashDonationForm1Screen = ({navigation}) => {
                   mt={8}
                   mb={5}
                   size="md"
-                  onPress={() => this.handleClick()}>
+                  onPress={() => this.handleClick2()}>
                   Start new business
                 </Button>
               </Box>
@@ -112,4 +117,4 @@ const CashDonationForm1Screen = ({navigation}) => {
   );
 };
 
-export default CashDonationForm1Screen;
+export default GuidanceInitial;
